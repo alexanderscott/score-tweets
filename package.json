@@ -3,14 +3,31 @@
   "version": "0.0.1",
   "author": "Sanders DeNardi",
   "description": "Framework for sending out live score updates via Twitter.",
-  "main": "score-tweets.js",
+  "main": "score-tweets",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/sedenardi/score-tweets"
   },
-  "dependencies" : {
+  "bin": "bin/score-tweets-server",
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "express": "~3.4.4",
+    "forever": "~0.10.9",
+    "winston": "~0.7.2"
   },
-  "engines": {
-    "node": ">=0.10"
-  }
+  "devDependencies": {
+    "supertest": "0.5.x",
+    "mocha": "1.8.x",
+    "should": "1.2.x"
+  },
+  "engines": [
+    "node >=0.8.0"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/sedenardi/score-tweets/raw/master/LICENSE"
+    }
+  ]
 }

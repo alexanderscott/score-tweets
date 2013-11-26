@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+var forever = require('forever');
+
+forever.start('../index', {});

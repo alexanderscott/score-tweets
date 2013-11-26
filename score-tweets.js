@@ -1,7 +1,8 @@
-var http = require('http')
-,	file = require('fs')
-,	NHLScore = require('./my_modules/nhl.js')
-,	NFLScore = require('./my_modules/nfl.js');
+var http = require('http'),	
+    fs = require('fs'),
+    logger = require('./utils/logger'),
+    NHLScore = require('./lib/nhl'),
+    NFLScore = require('./lib/nfl');
 
 var league = Object.create(NHLScore);
 
@@ -13,8 +14,8 @@ var request = http.get(league.updateURL, function(res) {
 	});
 	res.on('end', function() {
 		var array = league.getGameArray(rawResponse);
-		console.log('Response: ' + JSON.stringify(array));
+		logger.debug('Response: ' + JSON.stringify(array));
 	});
 }).on('error', function(e) {
-	console.log('Error: ' + e.message);
+	logger.error('Error: ' + e.message);
 });
